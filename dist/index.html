@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>سنگ بکری | سنگ‌های لوکس ساختمانی - مرمر، اونیکس، گرانیت، تراورتن</title>
+    <meta name="description" content="سنگ بکری - تأمین‌کننده برتر سنگ‌های لوکس ساختمانی. مرمر، اونیکس، گرانیت و تراورتن با کیفیت بین‌المللی. بیش از ۲۰ سال تجربه در صنعت سنگ." />
+    <meta property="og:title" content="سنگ بکری | سنگ‌های لوکس ساختمانی" />
+    <meta property="og:description" content="تأمین مستقیم سنگ‌های لوکس ساختمانی برای پروژه‌های خاص و معماری‌های ماندگار" />
+    <meta property="og:type" content="website" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <script type="module" crossorigin src="/assets/index-CMbgvjb4.js"></script>
+    <link rel="stylesheet" crossorigin href="/assets/index-CtOvaJdG.css">
+    <script type="module">
+if (window.self === window.top) {
+  let lastPath = "";
+  function getPageNameFromPath(path) {
+    const segments = path.split("/").filter(Boolean);
+    return segments[0] || null;
+  }
+  function trackPageView() {
+    const path = window.location.pathname;
+    if (path === lastPath) return;
+    lastPath = path;
+    const pageName = getPageNameFromPath(path) || "home";
+    const appId = "6a3d6846fb445abffeb1687f";
+    if (!appId) return;
+    fetch(`/api/app-logs/${appId}/log-user-in-app/${pageName}`, {
+      method: "POST",
+    }).catch(() => {});
+  }
+  const originalPushState = history.pushState.bind(history);
+  history.pushState = function (...args) {
+    originalPushState(...args);
+    trackPageView();
+  };
+  const originalReplaceState = history.replaceState.bind(history);
+  history.replaceState = function (...args) {
+    originalReplaceState(...args);
+    trackPageView();
+  };
+  window.addEventListener("popstate", trackPageView);
+  trackPageView();
+}
+</script>
+  </head>
+  <body>
+    <div id="root"></div>
+  </body>
+</html>

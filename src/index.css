@@ -1,0 +1,158 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 36 23% 94%;
+    --foreground: 0 0% 11%;
+    --card: 36 30% 97%;
+    --card-foreground: 0 0% 11%;
+    --popover: 36 30% 97%;
+    --popover-foreground: 0 0% 11%;
+    --primary: 39 38% 60%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 33 24% 90%;
+    --secondary-foreground: 0 0% 11%;
+    --muted: 33 24% 90%;
+    --muted-foreground: 0 0% 36%;
+    --accent: 39 38% 60%;
+    --accent-foreground: 0 0% 100%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 39 38% 60% / 0.18;
+    --input: 33 24% 85%;
+    --ring: 39 38% 60%;
+    --radius: 0.5rem;
+    --font-heading: 'Vazirmatn', system-ui, sans-serif;
+    --font-body: 'Vazirmatn', system-ui, sans-serif;
+    --font-display: 'Vazirmatn', system-ui, sans-serif;
+    --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+    --chart-1: 39 38% 60%;
+    --chart-2: 173 58% 39%;
+    --chart-3: 197 37% 24%;
+    --chart-4: 43 74% 66%;
+    --chart-5: 27 87% 67%;
+    --sidebar-background: 36 23% 94%;
+    --sidebar-foreground: 0 0% 11%;
+    --sidebar-primary: 39 38% 60%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 33 24% 90%;
+    --sidebar-accent-foreground: 0 0% 11%;
+    --sidebar-border: 39 38% 60% / 0.18;
+    --sidebar-ring: 39 38% 60%;
+
+    --bekri-bg: #F5F2EC;
+    --bekri-surface: #EEE8DF;
+    --bekri-card: #FAF8F3;
+    --bekri-text: #1B1B1B;
+    --bekri-text-secondary: #5B5B5B;
+    --bekri-accent: #C8A96A;
+    --bekri-accent-hover: #B8993A;
+    --bekri-border: rgba(200,169,106,0.18);
+  }
+
+  .dark {
+    --background: 216 10% 10%;
+    --foreground: 36 11% 94%;
+    --card: 216 10% 15%;
+    --card-foreground: 36 11% 94%;
+    --popover: 216 10% 15%;
+    --popover-foreground: 36 11% 94%;
+    --primary: 39 47% 64%;
+    --primary-foreground: 216 10% 10%;
+    --secondary: 216 10% 13%;
+    --secondary-foreground: 36 11% 94%;
+    --muted: 216 10% 13%;
+    --muted-foreground: 0 0% 71%;
+    --accent: 39 47% 64%;
+    --accent-foreground: 216 10% 10%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 39 47% 64% / 0.15;
+    --input: 216 10% 20%;
+    --ring: 39 47% 64%;
+    --chart-1: 39 47% 64%;
+    --chart-2: 160 60% 45%;
+    --chart-3: 30 80% 55%;
+    --chart-4: 280 65% 60%;
+    --chart-5: 340 75% 55%;
+    --sidebar-background: 216 10% 10%;
+    --sidebar-foreground: 36 11% 94%;
+    --sidebar-primary: 39 47% 64%;
+    --sidebar-primary-foreground: 216 10% 10%;
+    --sidebar-accent: 216 10% 13%;
+    --sidebar-accent-foreground: 36 11% 94%;
+    --sidebar-border: 39 47% 64% / 0.15;
+    --sidebar-ring: 39 47% 64%;
+
+    --bekri-bg: #17191C;
+    --bekri-surface: #1F2226;
+    --bekri-card: #25282D;
+    --bekri-text: #F3F1EC;
+    --bekri-text-secondary: #B5B5B5;
+    --bekri-accent: #D4B072;
+    --bekri-accent-hover: #E0C080;
+    --bekri-border: rgba(212,176,114,0.15);
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply text-foreground font-body;
+    background-color: var(--bekri-bg);
+    direction: rtl;
+    font-family: 'Vazirmatn', system-ui, sans-serif;
+  }
+}
+
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: var(--bekri-bg);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--bekri-accent);
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--bekri-accent-hover);
+}
+
+
+html {
+  scroll-behavior: smooth;
+}
+
+::selection {
+  background-color: var(--bekri-accent);
+  color: white;
+}
+
+.text-gradient-gold {
+  background: linear-gradient(135deg, #C8A96A, #E0C68A, #C8A96A);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+.dark .text-gradient-gold {
+  background: linear-gradient(135deg, #D4B072, #F0D090, #D4B072);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.vein-line {
+  height: 0.5px;
+  background: linear-gradient(90deg, transparent, var(--bekri-accent), transparent);
+  opacity: 0.4;
+}
+
+.glass {
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+}
