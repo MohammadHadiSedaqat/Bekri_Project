@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import { Link, useLocation } from 'react-router-dom';
-import { Menu, X, Sun, Moon, Search, MessageCircle, ChevronDown } from 'lucide-react';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
+import { Menu, X, Sun, Moon, Search, ChevronDown } from 'lucide-react';
 import { useTheme } from '@/lib/ThemeContext';
 import { NAV_ITEMS } from '@/lib/constants';
 import { motion, AnimatePresence } from 'framer-motion';
@@ -9,8 +9,10 @@ export default function Header() {
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
   const [activeDropdown, setActiveDropdown] = useState(null);
+  const [searchTerm, setSearchTerm] = useState('');
   const { theme, toggleTheme } = useTheme();
   const location = useLocation();
+  const navigate = useNavigate();
 
   useEffect(() => {
     const handler = () => setScrolled(window.scrollY > 50);
@@ -19,6 +21,13 @@ export default function Header() {
   }, []);
 
   useEffect(() => { setMobileOpen(false); }, [location.pathname]);
+
+  const handleSearchSubmit = (event) => {
+    event.preventDefault();
+    const query = searchTerm.trim();
+    navigate(query ? `/search?q=${encodeURIComponent(query)}` : '/search');
+    setMobileOpen(false);
+  };
 
   return (
     <>
@@ -99,15 +108,17 @@ export default function Header() {
                 {theme === 'light' ? <Moon className="w-4 h-4" /> : <Sun className="w-4 h-4" />}
               </button>
 
-              <a
-                href="https://wa.me/989123456789"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="hidden md:flex items-center gap-2 px-4 py-2 rounded-full text-sm font-medium bg-green-600 text-white hover:bg-green-700 transition-colors"
-              >
-                <MessageCircle className="w-4 h-4" />
-                واتساپ
-              </a>
+              <form onSubmit={handleSearchSubmit} className="hidden md:flex items-center relative">
+                <Search className="absolute right-3 top-1/2 -translate-y-1/2 w-4 h-4 text-[var(--bekri-text)] dark:text-white pointer-events-none" />
+                <input
+                  type="search"
+                  value={searchTerm}
+                  onChange={(event) => setSearchTerm(event.target.value)}
+                  placeholder="جستجوی سنگ..."
+                  className="w-36 xl:w-44 h-10 pr-9 pl-3 rounded-full text-sm bg-transparent border border-[var(--bekri-border)] text-[var(--bekri-text)] dark:text-white placeholder:text-[var(--bekri-text)] dark:placeholder:text-white focus:outline-none focus:border-[var(--bekri-accent)]/60 transition-colors"
+                  aria-label="جستجوی سنگ"
+                />
+              </form>
 
               <Link
                 to="/contact"
@@ -175,15 +186,17 @@ export default function Header() {
                 ))}
               </div>
               <div className="mt-8 flex flex-col gap-3">
-                <a
-                  href="https://wa.me/989123456789"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex items-center justify-center gap-2 px-4 py-3 rounded-full text-sm font-medium bg-green-600 text-white"
-                >
-                  <MessageCircle className="w-4 h-4" />
-                  واتساپ
-                </a>
+                <form onSubmit={handleSearchSubmit} className="relative">
+                  <Search className="absolute right-4 top-1/2 -translate-y-1/2 w-4 h-4 text-[var(--bekri-text-secondary)] pointer-events-none" />
+                  <input
+                    type="search"
+                    value={searchTerm}
+                    onChange={(event) => setSearchTerm(event.target.value)}
+                    placeholder="جستجوی محصول یا سنگ..."
+                    className="w-full h-12 pr-11 pl-4 rounded-full text-sm bg-[var(--bekri-surface)] border border-[var(--bekri-border)] text-[var(--bekri-text)] placeholder:text-[var(--bekri-text-secondary)] focus:outline-none focus:border-[var(--bekri-accent)]/60 transition-colors"
+                    aria-label="جستجوی محصول یا سنگ"
+                  />
+                </form>
                 <Link
                   to="/contact"
                   className="flex items-center justify-center px-4 py-3 rounded-full text-sm font-medium bg-[var(--bekri-accent)] text-white"

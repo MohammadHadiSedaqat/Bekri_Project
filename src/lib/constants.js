@@ -49,3 +49,6 @@ export const CATEGORY_IMAGES = {
   travertine: TRAVERTINE_IMAGE,
   luxury_slab: SLABS_IMAGE,
 };
+
+export const PRODUCT_COLORS = ['سفید', 'کرم', 'خاکستری', 'مشکی', 'قهوه‌ای', 'سبز', 'صورتی', 'طلایی', 'عسلی'];
+export const PRODUCT_FINISHES = ['صیقلی', 'هنداسی', 'بوشارد', 'چرمی', 'پولیش', 'سندبلاست'];

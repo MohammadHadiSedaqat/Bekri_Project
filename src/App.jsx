@@ -13,6 +13,7 @@ import Home from '@/pages/Home';
 import Collections from '@/pages/Collections';
 import CollectionDetail from '@/pages/CollectionDetail';
 import ProductDetail from '@/pages/ProductDetail';
+import SearchPage from '@/pages/Search';
 import Projects from '@/pages/Projects';
 import Magazine from '@/pages/Magazine';
 import About from '@/pages/About';
@@ -41,6 +42,7 @@ function App() {
                 <Route path="/collections" element={<Collections />} />
                 <Route path="/collection/:category" element={<CollectionDetail />} />
                 <Route path="/product/:id" element={<ProductDetail />} />
+                <Route path="/search" element={<SearchPage />} />
                 <Route path="/projects" element={<Projects />} />
                 <Route path="/magazine" element={<Magazine />} />
                 <Route path="/about" element={<About />} />
